@@ -29,6 +29,9 @@
       padding: 15px;
       border-radius: 5px;
       margin-bottom: 15px;
+      margin-right: 1000px;
+      border-right: 10px;
+      width:270px
     }
 
     .buttons {
@@ -44,12 +47,12 @@
       color: #fff;
       border: none;
       border-radius: 5px;
-      cursor: not-allowed;
+    
       transition: background-color 0.2s;
     }
 
     .buttons button:hover {
-      background-color: #666;
+      background-color: #ed8712;
     }
 
     .buttons .equal {
@@ -57,31 +60,56 @@
       color: #000;
       font-weight: bold;
     }
+    .cal{
+        background-color: #10d40d;
+      color: #08e121;
+      font-weight: bold;
+      width: 450%;
+      align-content: center;
+    }
+    
   </style>
 </head>
+<script>
+    function append(value){
+        document.getElementById('display').value+=value;
+    }
+
+    function Clean(){
+        document.getElementById('display').value=" ";
+    }
+    function calculate(){
+        document.getElementById('display').value=eval(document.getElementById('display').value);
+    }
+    
+</script>
 <body>
   <div class="calculator">
-    <div class="display">0</div>
+    
+        <input id="display" class="display" readonly>
+    
     <div class="buttons">
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>/</button>
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button onclick="append('/')">/</button>
 
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>*</button>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="append('*')">*</button>
 
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>-</button>
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('-')">-</button>
 
-      <button>0</button>
-      <button>.</button>
-      <button class="equal">=</button>
-      <button>+</button>
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button onclick="append('+')">+</button>
+      <button class="equal" onclick="Clean()">C</button>
+
+      <button class="cal" onclick="calculate()">=</button>
     </div>
   </div>
 </body>
